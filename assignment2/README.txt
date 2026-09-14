@@ -6,7 +6,7 @@ Install kubectl
 
 Start Minikube cluster
 ----------------------
-minikube start
+minikube start --driver=docker
 
 
 Connect docker CLI on Host to Docker Daemon inside Minikube
