@@ -1,39 +1,49 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: greetings 
+  name: greetings
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
+      app: greetings
   template:
     metadata:
       labels:
+        app: greetings
     spec:
       serviceAccount: greetings
       containers:
-        - name: assignment2 
-          image: ""
-          imagePullPolicy: IfNotPresent # Never
+        - name: assignment2
+          image: "lum89-assignment2:latest"
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5001
+          env:
+            - name: GREETING
+              value: "Fall is here."
 ---
 kind: Service
 apiVersion: v1
 metadata:
   name: greetings
+  labels:
+    app: greetings
 spec:
   selector:
+    app: greetings
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 5001
+    - protocol: TCP
+      port: 80
+      targetPort: 5001
   type: ClusterIP
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: greetings-config
+  labels:
+    app: greetings
 data:
   filenames.txt: |
     application.py
@@ -47,4 +57,5 @@ kind: ServiceAccount
 metadata:
   name: greetings
   namespace: default
----
+  labels:
+    app: greetings
