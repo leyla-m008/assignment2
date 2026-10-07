@@ -1,0 +1,9 @@
+AI Used:
+ChatGPT
+
+Prompts
+How do I configure Docker CLI to use the Docker daemon inside Minikube?
+Help me troubleshoot the kubectl "Exec format error" on my ARM64 WSL environment.
+Help me troubleshoot the Docker build failure when Minikube was using the containerd runtime.
+Help me verify that my Kubernetes Deployment, Service, ConfigMap, ServiceAccount, Role, and RoleBinding are working correctly.
+Help me troubleshoot and verify the application endpoints using curl.

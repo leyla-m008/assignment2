@@ -1,3 +1,6 @@
+name: Leyla Mammadli
+eid: lum89
+comments: N/A
 Setup
 -----
 Install Minikube
